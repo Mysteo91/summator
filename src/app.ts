@@ -8,9 +8,12 @@ const app = async () => {
   async function lsExample() {
     if (sss === 'linux') {
       
-      const { stdout, stderr } = await exec('ping -c 3 8.8.8.8');
-      console.log('stdout:', stdout);
-      console.error('stderr:', stderr);
+      const { stdout, stderr } = await exec('ls /dev/ | grep ttyUSB');
+      for (let val in stdout){
+        
+        console.log(val)
+        
+      }
       
     }
     else {
