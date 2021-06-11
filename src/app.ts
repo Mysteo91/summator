@@ -9,11 +9,7 @@ const app = async () => {
     if (sss === 'linux') {
       
       const { stdout, stderr } = await exec('ls /dev/ | grep ttyUSB');
-      for (let val in stdout){
-        
-        console.log(val)
-        
-      }
+      console.log(stdout)
       
     }
     else {
