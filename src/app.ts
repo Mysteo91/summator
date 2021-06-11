@@ -10,13 +10,19 @@ const app = async () => {
       
       const { stdout, stderr } = await exec('ls /dev/ | grep ttyUSB');
       console.log(stdout)
+      let ar1 = Array.from(stdout);
+      for ( let vars in ar1 ) {
+        
+            console.log(vars)
+    
+      }
+      
       
     }
     else {
       
       const { stdout, stderr } = await exec('ping -n 3 8.8.8.8');
       console.log('stdout:', stdout);
-      console.error('stderr:', stderr);
       
     }
   }
