@@ -1,18 +1,19 @@
-import { logger } from "./logger";
-import {detectModems} from "./modem/detector";
+
 
 const app = async () => {
   
-  logger.info('Starting summator app...')
+  const util = require('util');
+  const exec = util.promisify(require('child_process').exec);
   
-  detectModems()
-    .then((modems) => {
-      logger.info(`Modems found = ${modems.length}`)
-  
-      modems.forEach(modem => logger.info(`Modem "${modem.vendor}", "${modem.model}", rev "${modem.revision}" is on ${modem.portInfo.path}`))
-    })
-    .catch(logger.error)
+  async function lsExample() {
+    const { stdout, stderr } = await exec('ping -n 3 8.8.8.8');
+    console.log('stdout:', stdout);
+    console.error('stderr:', stderr);
+  }
+  console.log(`This platform is ${process.platform}`);
+  lsExample();
+
 }
 
 app()
-  .catch(logger.error)
+
