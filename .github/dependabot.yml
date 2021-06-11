@@ -1,0 +1,14 @@
+version: 2
+
+registries:
+  npm-npmjs:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{ secrets.GH_DEPBOT_TOKEN_CAN_READ_PACKAGES }}
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: "daily"
