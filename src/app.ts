@@ -10,7 +10,7 @@ const app = async () => {
       
       const { stdout, stderr } = await exec('ls /dev/ | grep ttyUSB');
       console.log(stdout)
-      var arrayOfStrings = stdout.split('\r\n');
+      var arrayOfStrings = stdout.split('\n');
       console.log(arrayOfStrings[1]);
       
       
