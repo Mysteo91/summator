@@ -10,20 +10,17 @@ const app = async () => {
       
       const { stdout, stderr } = await exec('ls /dev/ | grep ttyUSB');
       console.log(stdout)
-      let ar1 = Array.from(stdout);
-      for ( let vars in ar1 ) {
-        
-            console.log(vars)
-    
-      }
+      var arrayOfStrings = stdout.split('\r\n');
+      console.log(arrayOfStrings[1]);
       
       
     }
     else {
       
-      const { stdout, stderr } = await exec('ping -n 3 8.8.8.8');
+      const { stdout, stderr } = await exec('type C:\\Users\\arbin\\test.txt');
       console.log('stdout:', stdout);
-      
+      console.log(typeof (stdout));
+  
     }
   }
   lsExample();
